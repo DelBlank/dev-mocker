@@ -1,0 +1,70 @@
+{
+  "name": "dev-mocker",
+  "version": "1.0.0",
+  "description": "A cli tool for nodejs development mock server",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint . --fix --format codeframe",
+    "lint-staged": "lint-staged",
+    "precommit": "lint-staged",
+    "test": "jest --watch"
+  },
+  "bin": {
+    "dev-mocker": "./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DelBlank/dev-mocker.git"
+  },
+  "keywords": [
+    "mock",
+    "server"
+  ],
+  "author": {
+    "name": "delblank",
+    "email": "cpyjss@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DelBlank/dev-mocker/issues"
+  },
+  "homepage": "https://github.com/DelBlank/dev-mocker#readme",
+  "jest": {
+    "verbose": true,
+    "notify": true,
+    "testEnvironment": "node",
+    "collectCoverage": true,
+    "roots": [
+      "<rootDir>/__tests__"
+    ],
+    "modulePaths": [
+      "<rootDir>/src"
+    ],
+    "moduleDirectories": [
+      "<rootDir>/__mocks__",
+      "node_modules"
+    ],
+    "coverageReporters": [
+      "html",
+      "text",
+      "text-summary"
+    ]
+  },
+  "lint-staged": {
+    "**/*.js": [
+      "npm run lint",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "commander": "^2.14.1",
+    "express": "^4.16.2",
+    "parcel-bundler": "^1.6.2"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "jest-cli": "^22.4.2",
+    "lint-staged": "^7.0.0",
+    "web-common-config": "^1.0.2"
+  }
+}
